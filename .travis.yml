@@ -17,8 +17,8 @@ defaults: &defaults
   script:
     #   ## print all Travis environment variables for debugging
     - $(npm bin)/print-env TRAVIS
-    - npm run serve -- --silent &
-    - npm run test:e2e -- --record --parallel --group $STAGE_NAME
+    - npm run serve
+    - npm run test:e2e -- --headless
     # after all tests finish running we need
     # to kill all background jobs (like "npm start &")
     - kill $(jobs -p) || true
